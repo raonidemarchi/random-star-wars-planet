@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card, { CardTitle, CardBody, CardFooter } from '../Card/Card';
 import Button from '../Button/Button';
 import styles from './RandomPlanetDisplay.module.scss';
 import { formatNumber } from '../../helper';
+import { getPlanetsCount, getPlanetById } from '../../api/planetsAPI';
+import { getFilmTitleByUrl } from '../../api/filmsAPI';
 
 function RandomPlanetDisplay() {
   const [planetsCount, setPlanetsCount] = useState(0);
@@ -11,37 +13,33 @@ function RandomPlanetDisplay() {
   // const [loadingPlanets, setLoadingPlanets] = useState(true);
 
   const fetchPlanetsCount = async () => {
-    const response = await fetch('https://swapi.co/api/planets/');
-    const result = await response.json();
-
-    setPlanetsCount(result.count);
+    const result = await getPlanetsCount();
+    
+    setPlanetsCount(result.data);
   }
 
   const fetchRandomPlanet = async (planetsCount) => {
     const randomId = Math.floor((Math.random() * planetsCount) + 1);
-    const response = await fetch(`https://swapi.co/api/planets/${randomId}/`);
-    const result = await response.json();
+    const result = await getPlanetById(randomId);
 
-    setPlanet(result);
+    setPlanet(result.data);
   }
 
-  const getFilmsTitle = async (planet, _fetchFilm) => {
+  const getFilmsTitle = async (planet) => {
     const filmsArray = planet.films;
     let filmsTitleArray = [];
 
     if (filmsArray.length > 0) {
-      filmsTitleArray = await Promise.all(filmsArray.map(film => _fetchFilm(film)));
+      filmsTitleArray = await Promise.all(
+        filmsArray.map(async film => {
+          const result = await getFilmTitleByUrl(film);
+          return result.data;
+        })
+      )
     }
 
     setFeaturedFilms(filmsTitleArray);
   }
-
-  const fetchFilm = useCallback(async (filmUrl) => {
-    const response = await fetch(filmUrl);
-    const result = await response.json();
-
-    return result.title;
-  }, [])
 
   useEffect(() => {
     fetchPlanetsCount();
@@ -55,10 +53,10 @@ function RandomPlanetDisplay() {
 
   useEffect(() => {
     if (Object.entries(planet).length > 0) {
-      getFilmsTitle(planet, fetchFilm);
+      getFilmsTitle(planet);
       document.title = planet.name;
     }
-  }, [planet, fetchFilm]);
+  }, [planet]);
 
   return (
     <div className={styles.container}>
