@@ -9,7 +9,7 @@ function Card({ children }) {
   );
 }
 
-function Title({ children }) {
+function CardTitle({ children }) {
   return (
     <div className={styles.cardTitle}>
       {children}
@@ -17,7 +17,7 @@ function Title({ children }) {
   );
 }
 
-function Body({ children }) {
+function CardBody({ children }) {
   return (
     <div className={styles.cardBody}>
       {children}
@@ -25,7 +25,7 @@ function Body({ children }) {
   );
 }
 
-function Footer({ children }) {
+function CardFooter({ children }) {
   return (
     <div className={styles.cardFooter}>
       {children}
@@ -35,7 +35,7 @@ function Footer({ children }) {
 
 export default Card;
 export {
-  Title,
-  Body,
-  Footer
+  CardTitle,
+  CardBody,
+  CardFooter
 }

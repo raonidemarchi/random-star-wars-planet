@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Button.module.scss';
 
-function Button(props) {
+function Button({ children, onClick }) {
   return (
-    <div role="button" className={styles.button} onClick={props.onClick}>
-      {props.children}
+    <div role="button" className={styles.button} onClick={onClick}>
+      {children}
     </div>
   )
 }

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Card, { Title, Body, Footer } from '../Card/Card';
+import Card, { CardTitle, CardBody, CardFooter } from '../Card/Card';
 import Button from '../Button/Button';
 import styles from './RandomPlanetDisplay.module.scss';
+import { formatNumber } from '../../helper';
 
 function RandomPlanetDisplay() {
   const [planetsCount, setPlanetsCount] = useState(0);
   const [planet, setPlanet] = useState({});
   const [featuredFilms, setFeaturedFilms] = useState([]);
+  const [loadingPlanets, setLoadingPlanets] = useState(true);
 
   useEffect(() => {
     fetchPlanetsCount();
@@ -60,15 +62,15 @@ function RandomPlanetDisplay() {
   return (
     <div className={styles.container}>
       <Card>
-        <Title>{planet.name}</Title>
+        <CardTitle>{planet.name}</CardTitle>
 
-        <Body>
-          <span className={styles.greyText}>Population:</span> {planet.population}<br />
+        <CardBody>
+          <span className={styles.greyText}>Population:</span> {formatNumber(planet.population)}<br />
           <span className={styles.greyText}>Climate:</span> {planet.climate}<br />
           <span className={styles.greyText}>Terrain:</span> {planet.terrain}
-        </Body>
+        </CardBody>
 
-        <Footer>
+        <CardFooter>
           {
             featuredFilms.length === 0 ?
               <span className={styles.greyText}>Not featured in any film</span>
@@ -77,7 +79,7 @@ function RandomPlanetDisplay() {
                 <span className={styles.greyText}>Featured in</span> {featuredFilms.join(', ')}
               </>
           }
-        </Footer>
+        </CardFooter>
       </Card>
 
       <div className={styles.buttonMargin}>
