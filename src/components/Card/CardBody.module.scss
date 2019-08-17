@@ -1,0 +1,46 @@
+.cardBody {
+  padding: 24px;
+
+  .placeholder1 {
+    margin: 0 auto;
+    max-width: 70%;
+    min-height: 14px;
+    border-radius: 2px;
+    background-color: #616161;
+    margin-bottom: 10px;
+  }
+
+  .placeholder2 {
+    @extend .placeholder1;
+    max-width: 50%;
+  }
+
+  .placeholder3 {
+    @extend .placeholder1;
+    max-width: 90%;
+    margin-bottom: 0;
+  }
+
+  .animatedBackground {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: darkgray;
+    background: linear-gradient(to right, #616161 10%, #757575 18%, #616161 33%);
+    background-size: 800px 104px;
+    height: 14px;
+    border-radius: 2px;
+    position: relative;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100%{
+    background-position: 468px 0
+  }
+}

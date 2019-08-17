@@ -3,7 +3,7 @@ import Card, { CardTitle, CardBody, CardFooter } from '../Card/Card';
 import Button from '../Button/Button';
 import ButtonSecondary from '../ButtonSecondary/ButtonSecondary';
 import styles from './RandomPlanetDisplay.module.scss';
-import { formatNumber, getRandomNumber } from '../../helper';
+import { formatNumber, getRandomNumber } from '../../util';
 import PlanetsAPI from '../../api/PlanetsAPI';
 import FilmsAPI from '../../api/FilmsAPI';
 import deathStarIcon from '../../assets/icons/death-star.svg';
@@ -14,7 +14,8 @@ function RandomPlanetDisplay() {
   const [featuredFilms, setFeaturedFilms] = useState([]);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [loadingPlanets, setLoadingPlanets] = useState(true);
+  const [loadingPlanet, setLoadingPlanet] = useState(true);
+  const [loadingFilms, setLoadingFilms] = useState(true);
 
   const fetchPlanetsCount = async () => {
     const result = await PlanetsAPI.getPlanetsCount();
@@ -30,8 +31,16 @@ function RandomPlanetDisplay() {
   }
 
   const fetchRandomPlanet = async (planetsCount = 0) => {
-    const randomId = getRandomNumber(1, planetsCount);
-    const result = await PlanetsAPI.getPlanetById(randomId);
+    let randomId = 0
+    let result = {};
+
+    setLoadingPlanet(true);
+    setLoadingFilms(true);
+
+    randomId = getRandomNumber(1, planetsCount);
+    result = await PlanetsAPI.getPlanetById(randomId);
+
+    setLoadingPlanet(false);
 
     if (result.error) {
       setError(true);
@@ -63,6 +72,7 @@ function RandomPlanetDisplay() {
     const getFilmsTitle = async () => {
       const filmsTitleArray = await FilmsAPI.getFilmsTitleByUrlArray(planet.films);
 
+      setLoadingFilms(false);
       setFeaturedFilms(filmsTitleArray.data);
     }
   
@@ -91,15 +101,15 @@ function RandomPlanetDisplay() {
   return (
     <div className={styles.container}>
       <Card>
-        <CardTitle>{planet.name}</CardTitle>
+        <CardTitle loading={loadingPlanet}>{planet.name}</CardTitle>
 
-        <CardBody>
+        <CardBody loading={loadingPlanet}>
           <span className={styles.greyText}>Population:</span> {formatNumber(planet.population)}<br />
           <span className={styles.greyText}>Climate:</span> {planet.climate}<br />
           <span className={styles.greyText}>Terrain:</span> {planet.terrain}
         </CardBody>
 
-        <CardFooter>
+        <CardFooter loading={loadingFilms}>
           {
             featuredFilms.length === 0 ?
               <span className={styles.greyText}>Not featured in any film</span>
@@ -112,7 +122,7 @@ function RandomPlanetDisplay() {
       </Card>
 
       <div className={styles.buttonMargin}>
-        <Button onClick={() => fetchRandomPlanet(planetsCount)}>Next</Button>
+        <Button disabled={loadingPlanet} onClick={() => fetchRandomPlanet(planetsCount)}>{loadingPlanet ? 'Loading planet' : 'Next'}</Button>
       </div>
     </div>
   );

@@ -10,4 +10,10 @@
   font-weight: 700;
   cursor: pointer;
   user-select: none;
+
+  &.isLoading {
+    opacity: .42;
+    cursor: initial;
+    box-shadow: none;
+  }
 }
