@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { SWAPI_URL } from '../config/apiConfig';
-
-const endpoint = 'planets/';
+import { SWAPI_PLANETS_ENDPOINT } from '../config/apiConfig';
 
 const getPlanetsCount = () => new Promise(async resolve => {
   const response = {
@@ -12,7 +10,7 @@ const getPlanetsCount = () => new Promise(async resolve => {
   let apiResponse = {};
 
   try {
-    apiResponse = await axios.get(`${SWAPI_URL}${endpoint}`);
+    apiResponse = await axios.get(`${SWAPI_PLANETS_ENDPOINT}`);
     response.data = apiResponse.data.count;
   } catch (error) {
     response.error = true;
@@ -31,7 +29,7 @@ const getPlanetById = (id = 0) => new Promise(async resolve => {
   let apiResponse = {};
 
   try {
-    apiResponse = await axios.get(`${SWAPI_URL}${endpoint}${id}/`);
+    apiResponse = await axios.get(`${SWAPI_PLANETS_ENDPOINT}${id}/`);
     response.data = apiResponse.data;
   } catch (error) {
     response.error = true;

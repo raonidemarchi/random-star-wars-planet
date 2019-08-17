@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CardTitle.module.scss';
+import PlaceholderLoader from '../PlaceholderLoader/PlaceholderLoader';
 
 function CardTitle({ children, loading }) {
   return (
@@ -7,9 +8,7 @@ function CardTitle({ children, loading }) {
       {
         loading ?
           <>
-            <div className={styles.placeholder}>
-              <div className={styles.animatedBackground}></div>
-            </div>
+            <PlaceholderLoader height="50px" maxWidth="90%" />
           </>
         :
           <>

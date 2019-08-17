@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CardBody.module.scss';
+import PlaceholderLoader from '../PlaceholderLoader/PlaceholderLoader';
 
 function CardBody({ children, loading }) {
   return (
@@ -7,17 +8,9 @@ function CardBody({ children, loading }) {
       {
         loading ?
           <>
-            <div className={styles.placeholder1}>
-              <div className={styles.animatedBackground}></div>
-            </div>
-
-            <div className={styles.placeholder2}>
-              <div className={styles.animatedBackground}></div>
-            </div>
-
-            <div className={styles.placeholder3}>
-              <div className={styles.animatedBackground}></div>
-            </div>
+            <PlaceholderLoader height="16px" maxWidth="90%" marginBottom="10px" />
+            <PlaceholderLoader height="16px" maxWidth="50%" marginBottom="10px" />
+            <PlaceholderLoader height="16px" maxWidth="70%" />
           </>
         :
           <>

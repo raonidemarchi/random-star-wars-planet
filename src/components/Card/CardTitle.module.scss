@@ -3,35 +3,4 @@
   letter-spacing: 0.025rem;
   border-bottom: 1px solid #616161;
   padding: 24px;
-
-  .placeholder {
-    margin: 0 auto;
-    max-width: 90%;
-    min-height: 50px;
-    border-radius: 2px;
-    background-color: #616161;
-  }
-
-  .animatedBackground {
-    animation-duration: 1.25s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeHolderShimmer;
-    animation-timing-function: linear;
-    background: darkgray;
-    background: linear-gradient(to right, #616161 10%, #757575 18%, #616161 33%);
-    background-size: 800px 104px;
-    height: 50px;
-    border-radius: 2px;
-    position: relative;
-  }
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: -468px 0
-  }
-  100%{
-    background-position: 468px 0
-  }
 }

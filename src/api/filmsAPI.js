@@ -17,7 +17,7 @@ const getFilmTitleByUrl = (url = '') => new Promise(async resolve => {
   }
 
   resolve(response);
-})
+});
 
 const getFilmsTitleByUrlArray = (urlArray = []) => new Promise(async resolve => {
   const response = {
@@ -35,7 +35,18 @@ const getFilmsTitleByUrlArray = (urlArray = []) => new Promise(async resolve => 
     urlArray.map(film => getFilmTitleByUrl(film))
   );
 
-  response.data = apiResponse.map(response => response.data);
+  response.data = apiResponse.map(film => {
+    if (film.error) {
+      response.error = film.error;
+      response.message = film.message;
+
+      return false;
+    }
+    
+    return film.data;
+  });
+
+  response.data = response.data.filter(filmTitle => filmTitle);
 
   resolve(response);
 });

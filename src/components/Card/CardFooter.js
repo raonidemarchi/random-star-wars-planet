@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CardFooter.module.scss';
+import PlaceholderLoader from '../PlaceholderLoader/PlaceholderLoader';
 
 function CardFooter({ children, loading }) {
   return (
@@ -7,9 +8,7 @@ function CardFooter({ children, loading }) {
       {
         loading ?
           <>
-            <div className={styles.placeholder}>
-              <div className={styles.animatedBackground}></div>
-            </div>
+            <PlaceholderLoader height="14px" maxWidth="50%" />
           </>
         :
           <>
