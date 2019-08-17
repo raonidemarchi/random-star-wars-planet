@@ -1,4 +1,4 @@
-const formatNumber = (number = 1) => {
+const formatNumber = (number = 0) => {
   let formatedNumber = 0;
 
   if (isNaN(number)) {

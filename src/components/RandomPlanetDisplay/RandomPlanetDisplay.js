@@ -4,8 +4,8 @@ import Button from '../Button/Button';
 import ButtonSecondary from '../ButtonSecondary/ButtonSecondary';
 import styles from './RandomPlanetDisplay.module.scss';
 import { formatNumber, getRandomNumber } from '../../helper';
-import { getPlanetsCount, getPlanetById } from '../../api/planetsAPI';
-import { getFilmTitleByUrl } from '../../api/filmsAPI';
+import PlanetsAPI from '../../api/PlanetsAPI';
+import FilmsAPI from '../../api/FilmsAPI';
 import deathStarIcon from '../../assets/icons/death-star.svg';
 
 function RandomPlanetDisplay() {
@@ -17,7 +17,7 @@ function RandomPlanetDisplay() {
   const [loadingPlanets, setLoadingPlanets] = useState(true);
 
   const fetchPlanetsCount = async () => {
-    const result = await getPlanetsCount();
+    const result = await PlanetsAPI.getPlanetsCount();
 
     if (result.error) {
       setError(true);
@@ -25,13 +25,13 @@ function RandomPlanetDisplay() {
 
       return;
     }
-    
+
     setPlanetsCount(result.data);
   }
 
   const fetchRandomPlanet = async (planetsCount = 0) => {
     const randomId = getRandomNumber(1, planetsCount);
-    const result = await getPlanetById(randomId);
+    const result = await PlanetsAPI.getPlanetById(randomId);
 
     if (result.error) {
       setError(true);
@@ -43,37 +43,31 @@ function RandomPlanetDisplay() {
     setPlanet(result.data);
   }
 
-  const getFilmsTitle = async (planet = {}) => {
-    const filmsArray = planet.films;
-    let filmsTitleArray = [];
-
-    if (filmsArray.length > 0) {
-      filmsTitleArray = await Promise.all(
-        filmsArray.map(async film => {
-          const result = await getFilmTitleByUrl(film);
-          return result.data;
-        })
-      )
-    }
-
-    setFeaturedFilms(filmsTitleArray);
-  }
-
   useEffect(() => {
     fetchPlanetsCount();
   }, []);
 
-  useEffect(() => {
-    if (planetsCount > 0) {
-      fetchRandomPlanet(planetsCount);
+  useEffect(function handlePlanetsCountChange() {
+    if (planetsCount === 0) {
+      return;
     }
-  }, [planetsCount]);
 
-  useEffect(() => {
-    if (Object.entries(planet).length > 0) {
-      getFilmsTitle(planet);
-      document.title = planet.name;
+    fetchRandomPlanet(planetsCount);
+  }, [planetsCount]);
+  
+  useEffect(function handlePlanetChange() {
+    if (Object.entries(planet).length === 0) {
+      return;
     }
+
+    const getFilmsTitle = async () => {
+      const filmsTitleArray = await FilmsAPI.getFilmsTitleByUrlArray(planet.films);
+
+      setFeaturedFilms(filmsTitleArray.data);
+    }
+  
+    getFilmsTitle();
+    document.title = planet.name;
   }, [planet]);
 
   if (error) {
