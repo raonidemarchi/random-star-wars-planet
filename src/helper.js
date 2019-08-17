@@ -1,4 +1,4 @@
-function formatNumber(number) {
+const formatNumber = (number = 1) => {
   let formatedNumber = 0;
 
   if (isNaN(number)) {
@@ -10,6 +10,11 @@ function formatNumber(number) {
   return formatedNumber;
 }
 
+const getRandomNumber = (min = 0, max = 1) => {
+  return Math.floor((Math.random() * max) + min);
+}
+
 export {
-  formatNumber
+  formatNumber,
+  getRandomNumber
 }

@@ -17,21 +17,21 @@ const getPlanetsCount = () => new Promise(
       response.data = apiResponse.data.count;
     } catch (error) {
       response.error = true;
-      response.message = error;
+      response.message = error.toString();
     }
 
     resolve(response);
   }
 );
 
-const getPlanetById = (id) => new Promise(
+const getPlanetById = (id = 0) => new Promise(
   async resolve => {
     try {
       apiResponse = await axios.get(`${SWAPI_URL}${endpoint}${id}/`);
       response.data = apiResponse.data;
     } catch (error) {
       response.error = true;
-      response.message = error;
+      response.message = error.toString();
     }
 
     resolve(response);

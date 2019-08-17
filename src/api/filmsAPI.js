@@ -15,7 +15,7 @@ const getFilmTitleByUrl = (url) => new Promise(
       response.data = apiResponse.data.title;
     } catch (error) {
       response.error = true;
-      response.message = error;
+      response.message = error.toString();
     }
 
     resolve(response);
