@@ -13,23 +13,25 @@ function RandomPlanetDisplay() {
   const [planetsCount, setPlanetsCount] = useState(0);
   const [planet, setPlanet] = useState({});
   const [featuredFilms, setFeaturedFilms] = useState([]);
+
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [loadingPlanet, setLoadingPlanet] = useState(true);
-  const [loadingFilms, setLoadingFilms] = useState(true);
+  const [errorMessage, setErrorMessage] = useState('');
   const [filmsError, setFilmsError] = useState(false);
 
+  const [loadingPlanet, setLoadingPlanet] = useState(true);
+  const [loadingFilms, setLoadingFilms] = useState(true);
+  const [loadingPlanetsCount, setLoadingPlanetsCount] = useState(true);
+  
   const fetchPlanetsCount = async () => {
-    const result = await PlanetsAPI.getPlanetsCount();
+    let result = {}
+    
+    setLoadingPlanetsCount(true);
+    
+    result = await PlanetsAPI.getPlanetsCount();
 
-    setError(false);
-
-    if (result.error) {
-      setError(true);
-      setErrorMessage(result.message);
-
-      return;
-    }
+    setLoadingPlanetsCount(false);
+    setError(result.error);
+    setErrorMessage(result.message);
 
     if (+result.data === +localStorage.planetsCount) {
       return;
@@ -45,30 +47,20 @@ function RandomPlanetDisplay() {
 
     setLoadingPlanet(true);
     setLoadingFilms(true);
-    setError(false);
 
     randomId = getRandomNumber(1, planetsCount);
     result = await PlanetsAPI.getPlanetById(randomId);
 
     setLoadingPlanet(false);
-
-    if (result.error) {
-      setError(true);
-      setErrorMessage(result.message);
-
-      return;
-    }
-
+    setError(result.error);
+    setErrorMessage(result.message);
     setPlanet(result.data);
   }
 
   const fetchFilmsTitle = async (planet = {}) => {
     const filmsTitleArray = await FilmsAPI.getFilmsTitleByUrlArray(planet.films);
 
-    if (filmsTitleArray.error) {
-      setFilmsError(true);
-    }
-
+    setFilmsError(filmsTitleArray.error);
     setLoadingFilms(false);
     setFeaturedFilms(filmsTitleArray.data);
   }
@@ -124,7 +116,7 @@ function RandomPlanetDisplay() {
                     </>
                 }
 
-                {filmsError && <p className={styles.filmsErrorMessage}>We couldn't retreive all featured films.</p>}
+                {filmsError && <p className={styles.filmsErrorMessage}>We couldn't retreive all films.</p>}
               </CardFooter>
             </Card>
 
@@ -137,13 +129,13 @@ function RandomPlanetDisplay() {
             <img src={deathStarIcon} alt="Death Star icon" className={styles.noConnectionIcon} />
 
             <p className={styles.noConnectionMessage}>
-              Houve um problema de conexão.
+              There's a connection problem.
             </p>
 
             <span className={styles.noConnectionDetails}>{errorMessage}</span>
 
             <div className={styles.buttonMargin}>
-              <ButtonSecondary onClick={() => fetchPlanetsCount()}>Tentar novamente</ButtonSecondary>
+              <ButtonSecondary disabled={loadingPlanetsCount} onClick={() => fetchPlanetsCount()}>{loadingPlanetsCount ? 'Tentando connection...' : 'Try to connect'}</ButtonSecondary>
             </div>
           </>
       }

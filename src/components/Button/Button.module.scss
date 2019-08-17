@@ -11,7 +11,7 @@
   cursor: pointer;
   user-select: none;
 
-  &.isLoading {
+  &.disabled {
     opacity: .42;
     cursor: initial;
     box-shadow: none;

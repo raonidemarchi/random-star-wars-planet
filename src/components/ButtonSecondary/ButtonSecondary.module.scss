@@ -10,4 +10,9 @@
   font-weight: 700;
   cursor: pointer;
   user-select: none;
+
+  &.disabled {
+    opacity: .42;
+    cursor: initial;
+  }
 }

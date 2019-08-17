@@ -5,7 +5,7 @@ const getPlanetsCount = () => new Promise(async resolve => {
   const response = {
     error: false,
     message: '',
-    data: {}
+    data: 0
   };
   let apiResponse = {};
 
