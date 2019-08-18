@@ -24,15 +24,6 @@
     
     *The page will reload if you make edits and you will also see any lint errors in the console.*
 
-## Production
-
-1. To build the app for production, run:
-    
-    ```sh
-    npm run build
-    ```
-    *It correctly bundles React in production mode and optimizes the build for the best performance.*
-
 ## Tests
 
 Use the following command to run the tests:
@@ -41,6 +32,15 @@ Use the following command to run the tests:
 npm test
 ```
 *It launches the test runner in the interactive watch mode using [Jest](https://jestjs.io).*
+
+## Production
+
+1. To build the app for production, run:
+    
+    ```sh
+    npm run build
+    ```
+    *It correctly bundles React in production mode and optimizes the build for the best performance.*
 
 ## Deploy on Github Pages
 
