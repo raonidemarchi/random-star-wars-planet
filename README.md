@@ -1,6 +1,6 @@
 # Random Star Wars Planet
 
-> A simple application (using [`create-react-app`](https://github.com/facebook/create-react-app)) to get random planets from Star Wars from [SWAPI](https://swapi.co).
+> An application (using [`create-react-app`](https://github.com/facebook/create-react-app)) to get random planets from Star Wars from [SWAPI](https://swapi.co).
 
 ## Development
 
@@ -62,13 +62,13 @@ npm test
     npm run deploy
     ```
 
+## Used APIs
+
+- Planets: https://swapi.co/api/planets/
+- Films: https://swapi.co/api/films/
+
 ## Live demo
 
 Access the live demo here: https://raonidemarchi.github.io/random-star-wars-planet/
 
 ![Application Demo](demo/demo.gif)
-
-## Used APIs
-
-- Planets: https://swapi.co/api/planets/
-- Films: https://swapi.co/api/films/
