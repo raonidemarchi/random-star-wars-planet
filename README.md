@@ -33,7 +33,7 @@ npm test
 ```
 *It launches the test runner in the interactive watch mode using [Jest](https://jestjs.io).*
 
-## Production
+## Production build
 
 1. To build the app for production, run:
     
