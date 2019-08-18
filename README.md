@@ -1,16 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Random Star Wars Planet
 
-## Available Scripts
+> A simple application (using [`create-react-app`](https://github.com/facebook/create-react-app)) to get random planets from Star Wars from [SWAPI](https://swapi.co).
 
-In the project directory, you can run:
+## Development
 
-### `npm start`
+*Make sure to have [Git](http://git-scm.com/) and [Node.js](http://nodejs.org/) installed.*
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Fork the repo and create a new branch — or just create a new branch if you have permissions.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+2. Once you have your local copy, install its dependencies:
+
+    ```sh
+    $ npm install
+    ```
+    
+3. Run the `start` script
+
+    ```sh
+    $ npm start
+    ```
+    
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br>
+    
+    _(The page will reload if you make edits and you will also see any lint errors in the console.)_
 
 ### `npm run test`
 
@@ -30,4 +42,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run deploy`
 
 Deploys the app on the Github Pages.<br>
-The application runs on: https://raonidemarchi.github.io/random-star-wars-planet/.
+You can see the application on: https://raonidemarchi.github.io/random-star-wars-planet/.
+
+##
