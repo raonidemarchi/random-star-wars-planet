@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import RandomPlanetDisplay from '../components/RandomPlanetDisplay/RandomPlanetDisplay';
+import TestRenderer from 'react-test-renderer';
 
 describe('RandomPlanetDisplay component', () => {
   test('Should render without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<RandomPlanetDisplay />, div);
+    TestRenderer.create(
+      <RandomPlanetDisplay />
+    );
   });
 });

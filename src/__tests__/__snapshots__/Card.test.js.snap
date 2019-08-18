@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component Should render a card with title, body and footer 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="cardTitle"
+  >
+    Title
+  </div>
+  <div
+    className="cardBody"
+  >
+    Body
+  </div>
+  <div
+    className="cardFooter"
+  >
+    Footer
+  </div>
+</div>
+`;
