@@ -66,6 +66,8 @@ npm test
 
 Access the live demo here: https://raonidemarchi.github.io/random-star-wars-planet/
 
+![Application Demo](demo/demo.gif)
+
 ## Used APIs
 
 - Planets: https://swapi.co/api/planets/
