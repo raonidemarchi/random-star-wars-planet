@@ -3,7 +3,7 @@ import Card, { CardTitle, CardBody, CardFooter } from '../Card/Card';
 import Button from '../Button/Button';
 import ButtonSecondary from '../ButtonSecondary/ButtonSecondary';
 import styles from './RandomPlanetDisplay.module.scss';
-import { formatNumber, getRandomNumber } from '../../util';
+import { formatNumber, getRandomNumber } from '../../Utils';
 import PlanetsAPI from '../../api/PlanetsAPI';
 import FilmsAPI from '../../api/FilmsAPI';
 import deathStarIcon from '../../assets/icons/death-star.svg';
