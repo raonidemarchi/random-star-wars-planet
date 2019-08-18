@@ -11,37 +11,37 @@
 2. Once you have your local copy, install its dependencies:
 
     ```sh
-    $ npm install
+    npm install
     ```
     
 3. Run the `start` script
 
     ```sh
-    $ npm start
+    npm start
     ```
     
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br>
     
-    _(The page will reload if you make edits and you will also see any lint errors in the console.)_
+    *The page will reload if you make edits and you will also see any lint errors in the console.*
 
-### `npm run test`
+## Production
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. To build the app for production, run:
+    
+    ```sh
+    npm run build
+    ```
+    *It correctly bundles React in production mode and optimizes the build for the best performance.*
 
-### `npm run build`
+## Tests
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use the following command to run the tests:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```sh
+npm test
+```
+*It launches the test runner in the interactive watch mode using [Jest](https://jestjs.io).*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Live demo
 
-### `npm run deploy`
-
-Deploys the app on the Github Pages.<br>
-You can see the application on: https://raonidemarchi.github.io/random-star-wars-planet/.
-
-##
+Access the live demo here: https://raonidemarchi.github.io/random-star-wars-planet/
