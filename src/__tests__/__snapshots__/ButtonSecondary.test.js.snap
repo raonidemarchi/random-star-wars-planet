@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonSecondary component Should render a hello button 1`] = `
+<div
+  className="button false"
+  onClick={[Function]}
+  role="button"
+>
+  Hello
+</div>
+`;
