@@ -42,6 +42,31 @@ npm test
 ```
 *It launches the test runner in the interactive watch mode using [Jest](https://jestjs.io).*
 
+## Deploy on Github Pages
+
+1. Change the property `homepage` on `package.json` file to your respository:
+
+    ```sh
+    "homepage": "https://yourusername.github.io/repository-name"
+    ```
+
+2. Run the `build` script to build the app for production:
+
+    ```sh
+    npm run build
+    ```
+    
+3. Deploy the app by running:
+
+    ```sh
+    npm run deploy
+    ```
+
 ## Live demo
 
 Access the live demo here: https://raonidemarchi.github.io/random-star-wars-planet/
+
+## Used APIs
+
+- Planets: https://swapi.co/api/planets/
+- Films: https://swapi.co/api/films/
