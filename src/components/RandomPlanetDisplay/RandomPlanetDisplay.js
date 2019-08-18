@@ -112,7 +112,8 @@ function RandomPlanetDisplay() {
                     <span className={styles.greyText}>Not featured in any film</span>
                   :
                     <>
-                      <span className={styles.greyText}>Featured in</span> {featuredFilms.join(', ')}
+                      <span className={styles.greyText}>Featured in {featuredFilms.length} {featuredFilms.length > 1 ? 'films' : 'film'}</span><br />
+                      {featuredFilms.join(', ')}
                     </>
                 }
 
