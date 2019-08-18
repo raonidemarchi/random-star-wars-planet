@@ -26,6 +26,8 @@
 
 ## Tests
 
+*All test files are located in `src/__tests__`*
+
 Use the following command to run the tests:
 
 ```sh
