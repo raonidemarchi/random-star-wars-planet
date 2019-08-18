@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/random-star-wars-planet/static/css/main.b6d0968d.chunk.css",
-    "main.js": "/random-star-wars-planet/static/js/main.3007bd57.chunk.js",
-    "main.js.map": "/random-star-wars-planet/static/js/main.3007bd57.chunk.js.map",
+    "main.css": "/random-star-wars-planet/static/css/main.762e0a78.chunk.css",
+    "main.js": "/random-star-wars-planet/static/js/main.7b2a55ca.chunk.js",
+    "main.js.map": "/random-star-wars-planet/static/js/main.7b2a55ca.chunk.js.map",
     "runtime~main.js": "/random-star-wars-planet/static/js/runtime~main.bf1fa5af.js",
     "runtime~main.js.map": "/random-star-wars-planet/static/js/runtime~main.bf1fa5af.js.map",
     "static/js/2.844dd434.chunk.js": "/random-star-wars-planet/static/js/2.844dd434.chunk.js",
     "static/js/2.844dd434.chunk.js.map": "/random-star-wars-planet/static/js/2.844dd434.chunk.js.map",
     "index.html": "/random-star-wars-planet/index.html",
-    "precache-manifest.8663712de9c18e843a9a411658b340bd.js": "/random-star-wars-planet/precache-manifest.8663712de9c18e843a9a411658b340bd.js",
+    "precache-manifest.970a6f85d48132dc93e696efe032e88b.js": "/random-star-wars-planet/precache-manifest.970a6f85d48132dc93e696efe032e88b.js",
     "service-worker.js": "/random-star-wars-planet/service-worker.js",
-    "static/css/main.b6d0968d.chunk.css.map": "/random-star-wars-planet/static/css/main.b6d0968d.chunk.css.map",
+    "static/css/main.762e0a78.chunk.css.map": "/random-star-wars-planet/static/css/main.762e0a78.chunk.css.map",
     "static/media/death-star.svg": "/random-star-wars-planet/static/media/death-star.e43cf385.svg",
     "static/media/star-wars-logo.png": "/random-star-wars-planet/static/media/star-wars-logo.528d93d0.png"
   }
