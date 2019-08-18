@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlaceholderLoader component Should render a PlaceholderLoader 1`] = `
+<div
+  className="placeholder"
+  style={
+    Object {
+      "marginBottom": "0",
+      "maxWidth": "100%",
+      "minHeight": "14px",
+    }
+  }
+>
+  <div
+    className="animatedBackground"
+    style={
+      Object {
+        "height": "14px",
+      }
+    }
+  />
+</div>
+`;

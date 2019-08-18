@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SWAPI_PLANETS_ENDPOINT } from '../config/apiConfig';
+import { SWAPI_PLANETS_ENDPOINT } from '../config/ApiConfig';
 
 const getPlanetsCount = () => new Promise(async resolve => {
   const response = {

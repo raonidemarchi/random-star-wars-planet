@@ -1,5 +1,5 @@
 import FilmsAPI from '../api/FilmsAPI';
-import { SWAPI_FILMS_ENDPOINT } from '../config/apiConfig';
+import { SWAPI_FILMS_ENDPOINT } from '../config/ApiConfig';
 
 describe('Films API', () => {
   test('Should return a film', async () => {
